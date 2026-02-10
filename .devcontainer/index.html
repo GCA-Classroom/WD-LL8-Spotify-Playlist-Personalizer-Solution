@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duolingo Game Logic – Team Prototype</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <header class="text-center mb-4">
+      <h1 class="fw-bold">🦉 Duolingo XP Prototype</h1>
+      <p class="text-muted">
+        Dev Shop Challenge: Build logic that reacts to learner progress
+      </p>
+    </header>
+
+    <!-- GAME CARD -->
+    <section class="card p-4 shadow-sm">
+
+      <!-- Progress Display -->
+      <h2 class="h5 mb-3">Learner Progress</h2>
+      <p>Total XP: <span id="xp-total">0</span></p>
+
+      <!-- Action Button -->
+      <button id="complete-lesson" class="btn btn-success w-100 mb-3">
+        Complete Lesson
+      </button>
+
+      <!-- Feedback -->
+      <div
+        id="feedback"
+        class="text-center fw-semibold mt-2"
+      ></div>
+
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
