@@ -11,13 +11,18 @@
   - feedback
 */
 
+/*
+  Duolingo Team Prototype
+  ----------------------
+  Your goal is NOT to copy the instructor demo.
+  Your goal is to make PRODUCT DECISIONS using logic.
+*/
+
 // ==============================
 // STEP 1: App State
 // ==============================
 
 let xpTotal = 0;
-
-// XP rewards (randomized)
 const xpRewards = [10, 15, 20];
 
 // ==============================
@@ -41,19 +46,17 @@ button.addEventListener("click", function () {
   xpTotal += earnedXP;
   xpDisplay.textContent = xpTotal;
 
-  // STEP 5: CONDITIONAL LOGIC
-  // 👉 This is where YOU solve the client problem
+  // STEP 5: CONDITIONAL LOGIC (YOU WRITE THIS)
+  // Requirements:
+  // - At least 3 user states
+  // - Use comparisons
+  // - Feedback must change based on progress
 
-  if (xpTotal < 50) {
-    feedback.textContent = `Nice start! You earned ${earnedXP} XP 👍`;
-    feedback.className = "good text-center";
-  } else if (xpTotal >= 50 && xpTotal < 100) {
-    feedback.textContent = `You're on a streak! 🔥 +${earnedXP} XP`;
-    feedback.className = "mid text-center";
-  } else {
-    feedback.textContent = `LEVEL UP! 🎉 You're crushing it!`;
-    feedback.className = "great text-center";
-  }
+  // TODO:
+  // if (...)
+  // else if (...)
+  // else (...)
+
 });
 
 /*
