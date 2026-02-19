@@ -40,8 +40,7 @@ const feedback = document.getElementById("feedback");
 button.addEventListener("click", function () {
 
   // STEP 4: Random XP reward
-  const randomIndex = Math.floor(Math.random() * xpRewards.length);
-  const earnedXP = xpRewards[randomIndex];
+const earnedXP = xpRewards[Math.floor(Math.random() * xpRewards.length)];
 
   xpTotal += earnedXP;
   xpDisplay.textContent = xpTotal;
