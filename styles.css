@@ -1,244 +1,37 @@
-/*
-  Duolingo-inspired styles
-  Using Duolingo's signature colors and friendly design
-*/
-
-/* Duolingo Colors */
-:root {
-  --duo-green: #58cc02;
-  --duo-green-dark: #46a302;
-  --duo-green-light: #d7ffb8;
-  --duo-orange: #ff9600;
-  --duo-blue: #1cb0f6;
-  --duo-red: #ff4b4b;
-  --duo-yellow: #ffc800;
-  --duo-gray-light: #f7f7f7;
-  --duo-gray-border: #e5e5e5;
-}
-
-/* Body - Duolingo uses light gray background */
+/* Spotify dark background */
 body {
-  background-color: var(--duo-gray-light) !important;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif !important;
+  background-color: #121212;
+  font-family: Arial, sans-serif;
 }
 
-/* Navigation Bar */
-.navbar {
-  border-bottom: 2px solid var(--duo-gray-border);
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+/* Song card styling */
+.song-card {
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.2s ease;
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--duo-green) !important;
+/* Hover effect like Spotify */
+.song-card:hover {
+  transform: scale(1.05);
+  background-color: #282828;
 }
 
-.navbar-logo {
-  font-size: 2rem;
+/* Cover art */
+.song-cover {
+  width: 100%;
+  border-radius: 6px;
 }
 
-.navbar-title {
-  color: var(--duo-green);
-  text-transform: lowercase;
-  letter-spacing: -0.5px;
-}
-
-.navbar-nav .nav-link {
-  color: #777;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem !important;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover {
-  background-color: var(--duo-green-light);
-  color: var(--duo-green-dark);
-}
-
-/* Hero Section */
-.hero-section {
-  background: linear-gradient(135deg, #58cc02 0%, #3c9a00 100%);
-  padding: 80px 0;
+/* Song title */
+.song-title {
   color: white;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  font-weight: 500;
-  opacity: 0.95;
-  margin-bottom: 2rem;
-}
-
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 2rem;
-}
-
-.badge-pill {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  display: inline-block;
-  transition: all 0.2s ease;
-}
-
-.badge-pill:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.hero-owl {
-  font-size: 12rem;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Progress Section */
-.progress-section {
-  padding: 60px 0;
-}
-
-/* Header styling */
-header h1 {
-  color: #3c3c3c;
-  font-weight: 700 !important;
-  font-size: 2rem;
-}
-
-header p {
-  color: #777;
-  font-size: 1.1rem;
-}
-
-/* Main card - Duolingo style with rounded corners and shadow */
-.card {
-  border-radius: 16px !important;
-  border: 2px solid var(--duo-gray-border) !important;
-  background: white !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Progress section */
-.card h2 {
-  color: #3c3c3c;
-  font-weight: 700;
-}
-
-.card p {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4b4b4b;
-}
-
-#xp-total {
-  color: var(--duo-green);
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-/* Duolingo-style button */
-#complete-lesson {
-  background-color: var(--duo-green) !important;
-  border: none !important;
-  border-radius: 12px !important;
-  padding: 16px !important;
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 0 var(--duo-green-dark) !important;
-  transition: all 0.1s ease;
-  position: relative;
-  top: 0;
-}
-
-#complete-lesson:hover {
-  background-color: var(--duo-green) !important;
-  filter: brightness(1.05);
-  top: -2px;
-  box-shadow: 0 6px 0 var(--duo-green-dark) !important;
-}
-
-#complete-lesson:active {
-  top: 2px;
-  box-shadow: 0 2px 0 var(--duo-green-dark) !important;
-}
-
-/* Feedback messages - Duolingo style */
-#feedback {
-  padding: 16px;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
-}
-
-#feedback.good {
-  background-color: var(--duo-green-light);
-  color: var(--duo-green-dark);
-  border: 2px solid var(--duo-green);
-}
-
-#feedback.mid {
-  background-color: #ffe6cc;
-  color: #cc7700;
-  border: 2px solid var(--duo-orange);
-}
-
-#feedback.great {
-  background-color: #d2f1ff;
-  color: #0b7cb8;
-  border: 2px solid var(--duo-blue);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .hero-owl {
-    font-size: 8rem;
-  }
-
-  .navbar-title {
-    font-size: 1.2rem;
-  }
+/* Artist name */
+.song-artist {
+  color: gray;
 }
