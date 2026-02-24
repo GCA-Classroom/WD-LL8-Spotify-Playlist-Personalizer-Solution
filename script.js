@@ -1,130 +1,176 @@
-// ========================================
-// Spotify Mood Player
-// Demonstrates:
-// Objects
-// Nested Arrays
-// Event Listeners
-// Loops
-// DOM Manipulation
-// Conditionals
-// ========================================
+/* ===================================================== */
+/* Scroll function from hero to app */
+/* ===================================================== */
+
+function scrollToApp() {
+
+  document.getElementById("app")
+    .scrollIntoView({ behavior: "smooth" });
+
+}
 
 
-// STEP 1: Create object with nested arrays
-const moods = {
+/* ===================================================== */
+/* PLAYLIST DATA OBJECT */
+/* Reliable images with fallback protection */
+/* ===================================================== */
 
-  happy: [
+const playlistData = {
+
+  focus: [
+
     {
-      artist: "Pharrell Williams",
-      title: "Happy",
-      cover: "https://upload.wikimedia.org/wikipedia/en/2/23/Pharrell_Williams_-_Happy.jpg"
+      title: "Tycho — Awake",
+      cover: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=300&q=80"
     },
+
     {
-      artist: "Taylor Swift",
-      title: "Shake It Off",
-      cover: "https://upload.wikimedia.org/wikipedia/en/f/f6/Taylor_Swift_-_1989.png"
+      title: "Lo-fi Beats",
+      cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&q=80"
     },
+
     {
-      artist: "Katy Perry",
-      title: "Firework",
-      cover: "https://upload.wikimedia.org/wikipedia/en/8/8a/Katy_Perry_-_Teenage_Dream.png"
+      title: "Hans Zimmer — Time",
+      cover: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=300&q=80"
     }
+
   ],
+
 
   chill: [
+
     {
-      artist: "SZA",
-      title: "Kill Bill",
-      cover: "https://upload.wikimedia.org/wikipedia/en/b/bf/SZA_-_SOS.png"
+      title: "Frank Ocean — Pink + White",
+      cover: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&q=80"
     },
+
     {
-      artist: "Drake",
-      title: "Hold On, We're Going Home",
-      cover: "https://upload.wikimedia.org/wikipedia/en/9/90/Nothing_Was_the_Same_cover.png"
+      title: "SZA — Good Days",
+      cover: "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?w=300&q=80"
     },
+
     {
-      artist: "Frank Ocean",
-      title: "Thinkin Bout You",
-      cover: "https://upload.wikimedia.org/wikipedia/en/a/a0/Channel_ORANGE.jpg"
+      title: "Daniel Caesar — Best Part",
+      cover: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=300&q=80"
     }
+
   ],
 
+
   hype: [
+
     {
-      artist: "Kanye West",
-      title: "Stronger",
-      cover: "https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg"
+      title: "Drake — Nonstop",
+      cover: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=300&q=80"
     },
+
     {
-      artist: "Travis Scott",
-      title: "SICKO MODE",
-      cover: "https://upload.wikimedia.org/wikipedia/en/1/1f/Astroworld_by_Travis_Scott.jpg"
+      title: "Travis Scott — SICKO MODE",
+      cover: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=300&q=80"
     },
+
     {
-      artist: "Beyoncé",
-      title: "CUFF IT",
-      cover: "https://upload.wikimedia.org/wikipedia/en/a/a1/Beyonce_-_Renaissance.png"
+      title: "Kanye West — POWER",
+      cover: "https://images.unsplash.com/photo-1464375117522-1311dd6d0cd1?w=300&q=80"
     }
+
   ]
 
 };
 
 
+/* ===================================================== */
+/* DOM ELEMENTS */
+/* ===================================================== */
 
-// STEP 2: Select DOM elements
-const moodSelector = document.getElementById("moodSelector");
-const songsContainer = document.getElementById("songsContainer");
-const message = document.getElementById("message");
+const selector = document.getElementById("mood-selector");
+
+const container = document.getElementById("playlist-container");
+
+const feedback = document.getElementById("feedback");
 
 
+/* ===================================================== */
+/* EVENT LISTENER */
+/* ===================================================== */
 
-// STEP 3: Add event listener
-moodSelector.addEventListener("change", function () {
+selector.addEventListener("change", function () {
 
-  const selectedMood = moodSelector.value;
+  const mood = selector.value;
 
-  // STEP 4: Clear previous content
-  songsContainer.innerHTML = "";
-  message.innerHTML = "";
 
-  // STEP 5: Conditional check
-  if (!moods[selectedMood]) {
+  /* Clear playlist */
+  container.innerHTML = "";
 
-    message.innerHTML = "Please select a mood.";
 
-    return;
+  /* Conditional feedback */
+
+  if (mood === "focus") {
+
+    feedback.innerText = "Time to focus. Let's get productive.";
+
   }
 
-  // Personalized message
-  message.innerHTML = `Your ${selectedMood} playlist is ready 🎧`;
+  else if (mood === "chill") {
 
-  // STEP 6: Loop through songs
-  moods[selectedMood].forEach(function (song) {
+    feedback.innerText = "Relax and enjoy the vibes.";
 
-    // Create column
-    const col = document.createElement("div");
-    col.className = "col-md-4 mb-4";
+  }
 
-    // Create card
-    col.innerHTML = `
-      <div class="song-card">
+  else if (mood === "hype") {
 
-        <img src="${song.cover}" class="song-cover">
+    feedback.innerText = "Energy mode activated.";
 
-        <div class="song-title">
-          ${song.title}
-        </div>
+  }
 
-        <div class="song-artist">
-          ${song.artist}
-        </div>
+  else {
 
-      </div>
-    `;
+    feedback.innerText = "Select a mood.";
 
-    // Add to page
-    songsContainer.appendChild(col);
+  }
 
-  });
+
+  /* Get songs */
+
+  const songs = playlistData[mood];
+
+
+  /* Loop through songs */
+
+  if (songs) {
+
+    songs.forEach(function(song) {
+
+      const row = document.createElement("div");
+
+      row.className = "song-row";
+
+
+      const img = document.createElement("img");
+
+      img.src = song.cover;
+
+      /* fallback protection */
+      img.onerror = function() {
+
+        this.src = "https://placehold.co/60x60?text=Music";
+
+      };
+
+
+      const title = document.createElement("div");
+
+      title.innerText = song.title;
+
+
+      row.appendChild(img);
+      row.appendChild(title);
+
+
+      container.appendChild(row);
+
+    });
+
+  }
 
 });
