@@ -98,10 +98,8 @@ selector.addEventListener("change", function () {
 
   const mood = selector.value;
 
-
   /* Clear playlist */
   container.innerHTML = "";
-
 
   /* Conditional feedback */
 
@@ -129,11 +127,9 @@ selector.addEventListener("change", function () {
 
   }
 
-
   /* Get songs */
 
   const songs = playlistData[mood];
-
 
   /* Loop through songs */
 
@@ -145,7 +141,6 @@ selector.addEventListener("change", function () {
 
       row.className = "song-row";
 
-
       const img = document.createElement("img");
 
       img.src = song.cover;
@@ -156,7 +151,6 @@ selector.addEventListener("change", function () {
         this.src = "https://placehold.co/60x60?text=Music";
 
       };
-
 
       const title = document.createElement("div");
 
