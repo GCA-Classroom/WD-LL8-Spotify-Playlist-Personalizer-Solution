@@ -133,38 +133,32 @@ selector.addEventListener("change", function () {
 
   /* Loop through songs */
 
-  if (songs) {
+ if (songs) {
 
-    songs.forEach(function(song) {
+  for (let i = 0; i < songs.length; i++) {
 
-      const row = document.createElement("div");
+    const song = songs[i];
 
-      row.className = "song-row";
+    const row = document.createElement("div");
+    row.className = "song-row";
 
-      const img = document.createElement("img");
+    const img = document.createElement("img");
+    img.src = song.cover;
 
-      img.src = song.cover;
+    img.onerror = function() {
+      this.src = "https://placehold.co/60x60?text=Music";
+    };
 
-      /* fallback protection */
-      img.onerror = function() {
+    const title = document.createElement("div");
+    title.innerText = song.title;
 
-        this.src = "https://placehold.co/60x60?text=Music";
+    row.appendChild(img);
+    row.appendChild(title);
 
-      };
-
-      const title = document.createElement("div");
-
-      title.innerText = song.title;
-
-
-      row.appendChild(img);
-      row.appendChild(title);
-
-
-      container.appendChild(row);
-
-    });
+    container.appendChild(row);
 
   }
+
+}
 
 });
